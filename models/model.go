@@ -7,8 +7,8 @@ import (
     "github.com/go-xorm/xorm"
     "gopkg.in/macaron.v1"
     "strings"
-    "github.com/ouqiang/gocron/modules/logger"
-    "github.com/ouqiang/gocron/modules/app"
+    "gocron/modules/logger"
+    "gocron/modules/app"
     "strconv"
     "time"
 )

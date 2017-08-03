@@ -1,14 +1,14 @@
 package install
 
 import (
-    "github.com/ouqiang/gocron/models"
-    "github.com/ouqiang/gocron/modules/app"
-    "github.com/ouqiang/gocron/modules/setting"
-    "github.com/ouqiang/gocron/modules/utils"
+    "gocron/models"
+    "gocron/modules/app"
+    "gocron/modules/setting"
+    "gocron/modules/utils"
     "gopkg.in/macaron.v1"
     "strconv"
     "fmt"
-    "github.com/ouqiang/gocron/service"
+    "gocron/service"
     "github.com/go-macaron/binding"
 )
 

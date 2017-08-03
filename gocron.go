@@ -6,8 +6,7 @@ package main
 import (
     "github.com/urfave/cli"
     "os"
-
-    "github.com/ouqiang/gocron/cmd"
+    "gocron/cmd"
 )
 
 const AppVersion = "1.0"
@@ -17,9 +16,10 @@ func main() {
     app.Name = "gocron"
     app.Usage = "gocron service"
     app.Version = AppVersion
-    app.Commands = []cli.Command{
-        cmd.CmdWeb,
-    }
+    s := make([]cli.Command,10,10)
+    s[0] = cmd.CmdWeb
+    app.Commands = s
+
     app.Flags = append(app.Flags, []cli.Flag{}...)
     app.Run(os.Args)
 }

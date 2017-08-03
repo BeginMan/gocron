@@ -84,17 +84,17 @@
                         </td>
                         <td>
                             <div class="ui buttons operation">
-                                <a class="ui purple  button" href="/task/edit/{{{.Id}}}">编辑</a>
+                                <a class="ui purple small button" href="/task/edit/{{{.Id}}}">编辑</a>
                                 {{{if eq .Level 1}}}
                                     {{{if eq .Status 1}}}
-                                    <button class="ui primary button" @click="changeStatus({{{.Id}}},{{{.Status}}})">停止</button>
+                                    <button class="ui primary small button" @click="changeStatus({{{.Id}}},{{{.Status}}})">停止</button>
                                     {{{else}}}
-                                    <button class="ui blue button" @click="changeStatus({{{.Id}}},{{{.Status}}})">激活 </button>
+                                    <button class="ui blue small button" @click="changeStatus({{{.Id}}},{{{.Status}}})">激活 </button>
                                     {{{end}}}
                                 {{{end}}}
-                                <button class="ui positive button" @click="remove({{{.Id}}})">删除</button> <br>
-                                <button class="ui twitter button" @click="run({{{.Id}}})">手动运行</button>
-                                <a class="ui instagram button" href="/task/log?task_id={{{.Id}}}">查看日志</a>
+                                <button class="ui positive small button" @click="remove({{{.Id}}})">删除</button> <br>
+                                <button class="ui twitter small button" @click="run({{{.Id}}})">手动运行</button>
+                                <a class="ui instagram small button" href="/task/log?task_id={{{.Id}}}">查看日志</a>
                             </div>
                         </td>
                     </tr>

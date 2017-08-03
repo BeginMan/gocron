@@ -4,7 +4,7 @@
 package main
 
 import (
-	"github.com/ouqiang/gocron/modules/rpc/server"
+	"gocron/modules/rpc/server"
 	"os"
 )
 

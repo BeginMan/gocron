@@ -3,8 +3,8 @@ package app
 import (
     "os"
 
-    "github.com/ouqiang/gocron/modules/logger"
-    "github.com/ouqiang/gocron/modules/utils"
+    "gocron/modules/logger"
+    "gocron/modules/utils"
     "gopkg.in/ini.v1"
 )
 

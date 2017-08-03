@@ -1,52 +1,54 @@
 package cmd
 
 import (
-    "github.com/ouqiang/gocron/modules/app"
-    "github.com/ouqiang/gocron/routers"
+    "gocron/modules/app"
+    "gocron/routers"
     "github.com/urfave/cli"
     "gopkg.in/macaron.v1"
     "os"
     "os/signal"
     "syscall"
-    "github.com/ouqiang/gocron/modules/logger"
-    "github.com/ouqiang/gocron/service"
-    "github.com/ouqiang/gocron/models"
-    "github.com/ouqiang/gocron/modules/setting"
+    "gocron/modules/logger"
+    "gocron/service"
+    "gocron/models"
+    "gocron/modules/setting"
     "time"
-    "github.com/ouqiang/gocron/modules/rpc/grpcpool"
+    "gocron/modules/rpc/grpcpool"
 )
 
 // web服务器默认端口
 const DefaultPort = 5920
 
+var CmdWeb cli.Command
+func init() {
 
-var CmdWeb = cli.Command{
-    Name:   "web",
-    Usage:  "run web server",
-    Action: runWeb,
-    Flags: []cli.Flag{
-        cli.StringFlag{
-            Name: "host",
-            Value: "0.0.0.0",
-            Usage: "bind host",
+    CmdWeb = cli.Command{
+        Name:   "web",
+        Usage:  "run web server",
+        Action: runWeb,
+        Flags: []cli.Flag{
+            cli.StringFlag{
+                Name:  "host",
+                Value: "0.0.0.0",
+                Usage: "bind host",
+            },
+            cli.IntFlag{
+                Name:  "port,p",
+                Value: DefaultPort,
+                Usage: "bind port",
+            },
+            cli.StringFlag{
+                Name:  "env,e",
+                Value: "prod",
+                Usage: "runtime environment, dev|test|prod",
+            },
+            cli.BoolFlag{
+                Name:  "d",
+                Usage: "-d=true, run as daemon process",
+            },
         },
-        cli.IntFlag{
-            Name:  "port,p",
-            Value: DefaultPort,
-            Usage: "bind port",
-        },
-        cli.StringFlag{
-            Name: "env,e",
-            Value: "prod",
-            Usage: "runtime environment, dev|test|prod",
-        },
-        cli.BoolFlag{
-            Name: "d",
-            Usage: "-d=true, run as daemon process",
-        },
-    },
+    }
 }
-
 func runWeb(ctx *cli.Context) {
     // 设置运行环境
     setEnvironment(ctx)
